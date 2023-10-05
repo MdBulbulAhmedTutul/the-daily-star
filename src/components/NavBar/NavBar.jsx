@@ -27,7 +27,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-end">
                 <Link to="/login">
-                    <button className="btn">Login</button>
+                    <button className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-lg text-white font-bold">Login</button>
                 </Link>
             </div>
         </div>
