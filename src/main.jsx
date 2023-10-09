@@ -6,11 +6,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+
 import Root from './components/Root/Root';
 import Home from './components/Home/Home';
 import Login from './components/Logun/Login';
 import Register from './components/Register/Register';
 import AuthProvider from './components/provider/AuthProvider';
+import NewsDetails from './components/newsdetails/NewsDetails';
+
 
 const router = createBrowserRouter([
   {
@@ -20,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('news.json')
+        loader: () => fetch('/news.json')
       },
       {
         path: '/login',
@@ -29,10 +33,16 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/news/:id',
+        element: <NewsDetails></NewsDetails>,
+        loader: () => fetch('/news.json')
       }
     ]
   },
 ]);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

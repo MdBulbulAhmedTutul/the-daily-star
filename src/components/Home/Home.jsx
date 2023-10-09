@@ -11,13 +11,15 @@ import qZone1 from '../../assets/qZone1.png';
 import qZone2 from '../../assets/qZone2.png';
 import qZone3 from '../../assets/qZone3.png';
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import imfbb1 from '../../assets/1.png';
 import imfbb2 from '../../assets/2.png';
 import imfbb3 from '../../assets/3.png';
+import NewsCard from "../NewsCard/NewsCard";
 
 
 const Home = () => {
+    const news = useLoaderData();
     const [catagories, setCatagories] = useState([]);
     useEffect(() => {
         fetch('categories.json')
@@ -75,8 +77,11 @@ const Home = () => {
 
 
                 {/* news */}
-                <div className="col-span-2 border">
-                    <h2>News Cooming soon...</h2>
+                <div className="col-span-2 border px-2">
+                    <h2 className="text-2xl font-semibold mb-8">Dragon News Home</h2>
+                    {
+                        news.map(aNews => <NewsCard key={aNews._id} news={aNews}></NewsCard>)
+                    }
                 </div>
 
 
